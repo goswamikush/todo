@@ -25,23 +25,24 @@
           </div>
         </div>
       </nav>
-    <h1 id="title">ToDo List</h1>
-    <a href="/new">
-      <button type="button" class="btn btn-dark">New Task</button>
-    </a>
+      <div class="text-center">
+        <h1 class="mx-1 d-inline fs-1">ToDo List</h1>
+        <a href="/new" class="">
+          <button type="button" class="btn btn-dark float-end">New Task</button>
+        </a>
+      </div>
+    
     <ul class="list-group">
         <% for (let task of tasks){ %>
-            <li class="list-group-item"><%= task.title %>
-                <form action="/delete/tasks/<%= task._id %>?_method=DELETE" method="POST">
+            <li class="list-group-item mx-1"><%= task.title %>
+                <form action="/delete/tasks/<%= task._id %>?_method=DELETE" method="POST" class="float-end">
                   <button type="submit" class="btn-close"></button>
                 </form>
                 <!-- Button trigger modal -->
-                <div id="info">
-                  <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal<%= task._id %>">Info</button>
-                </div>
-                <div id="edit">
-                  <form action="/edit/<%= task._id %>" method="GET"><button type="submit" class="btn btn-danger">Edit</button></form>
-                </div>
+
+                <button type="button" class="btn btn-info d-inline float-end mx-1" data-bs-toggle="modal" data-bs-target="#exampleModal<%= task._id %>">Info</button>
+                <form action="/edit/<%= task._id %>" method="GET" class="d-inline"><button type="submit" class="btn btn-danger d-inline float-end mx-1">Edit</button></form>
+
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal<%= task._id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
